@@ -9,7 +9,7 @@ export default class Customers extends Component {
                  <li key={name} >{name}</li>
 		)
 		return ( <div>
-		           <h1> Customers</h1>   
+		           <h1 id= 'customers'> Customers</h1>   
                    <ul>{listNames}</ul>
 				 </div>
 			   )

@@ -1,5 +1,8 @@
 language: node_js
 node_js:
   - "stable"
+services:
+  - docker
 script:
   - npm test
+  - docker build -t steinko/bankpresenter .
