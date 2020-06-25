@@ -1,10 +1,10 @@
 import React from 'react';
-import Customers from './Customers'
+import Atm from './Atm'
 
 function App() {
   return (
     <div>
-      <Customers />
+      <Atm />
     </div>      
   );
 }
