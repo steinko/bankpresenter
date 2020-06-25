@@ -3,3 +3,6 @@ env: flex
 handlers:
 - url: /.*
   script: this field is required, but ignored
+network:
+  forwarded_ports:
+    - 2345/tcp

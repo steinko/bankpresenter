@@ -1,31 +1,34 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import Customers from './Customers';
 
 
 it ('should exist', async  () => { 
-    let { getByText } = render(<Customers />)
+    let  { getByText} = render(<Customers />)
    await  expect(getByText).not.toBeNull()
 })
 
-Customers
-it ('should exist as fisrt element in customer list', () => { 
-      let { getByText } = render(<Customers />) 
-      expect( getByText('Customers')).toBeInTheDocument()
+
+
+it ('shold display entered test',  () => { 
+    let { queryByLabelText } = render(<Customers />)
+    expect(queryByLabelText('Enter Info')).toBeInTheDocument()
 })
 
-it ('should exist as fisrt element in customer list', () => {  
-    let { getByText } = render(<Customers />)
-      expect( getByText(/Stein/)).toBeInTheDocument()
+it ('shold display entered test',  () => { 
+   let { queryByLabelText, queryByText} = render(<Customers />)
+   let entry = 'cool entry'
+   fireEvent.change(queryByLabelText('Enter Info'), { target: { value:  entry } })
+   expect(queryByLabelText('Enter Info').value).toBe(entry)
+   fireEvent.click(queryByText('A'))
+   expect(queryByLabelText ('Display').value).toContain('Enter customer number')
 })
 
-it ('should exist as  seconed element in customer list',  () => {  
-    let { getByText } = render(<Customers />)
-    expect( getByText(/Oddmund/)).toBeInTheDocument()
-})
 
-it ('should not exist in customer list',  () => { 
-    let { queryByText } = render(<Customers />)
-    expect( queryByText(/Anne/)).not.toBeInTheDocument()
-})
+
+
+
+
+
+
 
