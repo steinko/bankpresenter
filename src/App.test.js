@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import App from './App';
 
 test('renders learn react link', () => {
-  const { queryByLabelText } = render(<App />);
-  const linkElement = queryByLabelText('Enter Info')
+  const { getByText } = render(<App />);
+  const linkElement = getByText(/Stein/i);
   expect(linkElement).toBeInTheDocument();
-});
+})
