@@ -8,7 +8,7 @@ it ('should exist', async  () => {
    await  expect(getByText).not.toBeNull()
 })
 
-Customers
+
 it ('should exist as fisrt element in customer list', () => { 
       let { getByText } = render(<Customers />) 
       expect( getByText('Customers')).toBeInTheDocument()

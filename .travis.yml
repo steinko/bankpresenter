@@ -5,4 +5,5 @@ services:
   - docker
 script:
   - npm test
+  - npm build
   - docker build -t steinko/bankpresenter .
